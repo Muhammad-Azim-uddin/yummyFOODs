@@ -31,7 +31,7 @@ $ban_img = "./uploads/banner/" . $banner["image"];
   <!-- Section Title -->
   <div class="container section-title" data-aos="fade-up">
     <h2>About Us<br></h2>
-    <p><span>Learn More</span> <span class="description-title">About Us</span></p>
+    <p class="text-danger"><?= $about['title']?? '' ?></p>
   </div><!-- End Section Title -->
 
   <div class="container">
@@ -41,7 +41,7 @@ $ban_img = "./uploads/banner/" . $banner["image"];
         <img src="assets/img/about.jpg" class="img-fluid mb-4" alt="">
         <div class="book-a-table">
           <h3>Book a Table</h3>
-          <p>+1 5589 55488 55</p>
+          <p class="text-danger"><?= $about['bookingNumber']?? '' ?></p>
         </div>
       </div>
       <div class="col-lg-5" data-aos="fade-up" data-aos-delay="250">

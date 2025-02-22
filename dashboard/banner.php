@@ -7,6 +7,8 @@ $result = mysqli_query($conn, $query);
 $banner = '';
 if ($result->num_rows > 0) {
     $banner = mysqli_fetch_assoc($result);
+    // print_r($banner);
+    // exit;
 }
 
 ?>
@@ -19,7 +21,7 @@ if ($result->num_rows > 0) {
                 <form enctype="multipart/form-data" action="../controller/bannerController.php" method="POST">
                     <div class="form-group">
                         <label for="title">Title</label>
-                        <input type="text" class="form-control" id="title" name="title" value = <?= $banner['title']?? NULL ?>>
+                        <input type="text" class="form-control" id="title" name="title" value = "<?= $banner['title']?? '' ?>">
                         <span class="text-danger">
                             <?= $_SESSION['errors']['title']?? '' ?>
                         </span>

@@ -28,9 +28,9 @@ if($image['size'] == 0){
         $errors['image'] = " image must be "  . implode(', ', EXTENSIONS);
     }
 }
+// validation end here... 
 
-
-// logic / file upload part 
+// logic / file upload part .......... logical part starts here,, 
 
 $path = "../uploads/banner/";
 
@@ -38,7 +38,7 @@ if (!file_exists($path)) {
     mkdir($path, 0777, true);
 }
 
-// check korte hobe,, file upload hoyeche kina,,
+// file er ekta unique name generate korte hobe,, and move to the directory ...........
 $fileName = "banner-" . uniqid() . ".$extension";
 move_uploaded_file($image['tmp_name'], $path . "/" . $fileName);
 
@@ -48,7 +48,7 @@ move_uploaded_file($image['tmp_name'], $path . "/" . $fileName);
 if (count($errors) > 0) {
     $_SESSION['errors'] = $errors;
     header('Location: ../dashboard/banner.php');
-} else {
+}else{
     // data update in database or data insert in database
 
     $query = "SELECT * FROM banner LIMIT 1"; 
@@ -63,7 +63,7 @@ if (count($errors) > 0) {
  
     }else{
         // data insert
-        $query = "INSERT INTO banner(title, description) VALUES ('$title','$description','$fileName')";
+        $query = "INSERT INTO banner(title, description, image) VALUES ('$title','$description','$fileName')";
         $result = mysqli_query($conn, $query);
     }
     $result = mysqli_query($conn, $query);
@@ -74,3 +74,5 @@ if (count($errors) > 0) {
         header('Location: ../index.php');
     }
 }
+
+?>

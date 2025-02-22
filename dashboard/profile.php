@@ -23,15 +23,15 @@ $fullName = $_SESSION['user']['first_name'] . " " . $_SESSION['user']['last_name
                             <label for="profile_img_input"> <img class="profile_img img-fluid" src="<?= getInfo($fullName)?>" style="border-radius:50%;object-fit:cover; object-position:center; height:200px; width:200px; " alt=""></label>
                             <input type="file" class="d-none " name="profile_image" id="profile_img_input">
                             <span class="text-danger">
-                                <?= $_SESSION['errors']['profile_image']?? NULL?>
+                                <?= $_SESSION['errors']['profile_image']?? ''?>
                             </span>
                         </div>
                         <div class="col-lg-8">
 
-                            <input type="text" class="form-control my-3" name="first_name" id="first_name" placeholder="first-name" value=<?= $_SESSION['user']['first_name'] ?? NULL ?>>
-                            <input type="text" class="form-control my-3" name="last_name" id="last_name" placeholder="last-name" value=<?= $_SESSION['user']['last_name'] ?? ' ' ?>>
+                            <input type="text" class="form-control my-3" name="first_name" id="first_name" placeholder="first-name" value="<?= $_SESSION['user']['first_name'] ?? '' ?>">
+                            <input type="text" class="form-control my-3" name="last_name" id="last_name" placeholder="last-name" value="<?= $_SESSION['user']['last_name'] ?? ' ' ?>">
                             <input type="text" class="form-control my-3" name="email" id="email" placeholder="email"
-                                value=<?= $_SESSION['user']['email'] ?? NULL ?>>
+                                value="<?= $_SESSION['user']['email'] ?? '' ?>">
                             <button type="submit" class="btn btn-primary btn-sm">Update Profile</button>
 
 

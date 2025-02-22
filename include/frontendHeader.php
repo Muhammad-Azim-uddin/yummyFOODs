@@ -7,6 +7,16 @@ $query = "SELECT * FROM banner";
 $result = mysqli_query($conn, $query);
 $banner = mysqli_fetch_assoc($result);
 
+// about section fetching ,,,, 
+
+$query = "SELECT * FROM about";
+$result2 = mysqli_query($conn, $query);
+$about = mysqli_fetch_assoc($result2);
+// print_r($about);
+// exit;
+
+// contact section fetching,,,
+
 
 
 

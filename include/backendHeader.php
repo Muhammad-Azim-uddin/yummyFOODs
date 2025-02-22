@@ -67,6 +67,11 @@ function getInfo($fullName){
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Banner</span></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./about.php">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>About</span></a>
+            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
