@@ -82,10 +82,8 @@ if (isset($_SESSION['errors'])) {
 <script>
     $(document).ready(function() {
         $("#profile_img_input").change(function() {
-            // console.log($(this)[0].files[0]);
             let file = $(this)[0].files[0];
             let url = URL.createObjectURL(file);
-            // console.log(url);
             $(".profile_img").attr("src", url);
         })
     })

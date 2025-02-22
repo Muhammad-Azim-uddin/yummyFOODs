@@ -1,21 +1,6 @@
 <?php
 include "./include/frontendHeader.php";
-
-// $id = mysqli_fetch_assoc($result)['id'];
-// print_r($id);
-// exit;
-
-
-// print_r($banner);
-// exit;
-
-// function getUrl(){
-//   if ($_SESSION['banner']['image']) {
-//       return "../uploads/banner/" . $_SESSION['banner']['image'];
-//   }else {
-//       return "https://api.dicebear.com/9.x/initials/svg?seed=azim";
-//   }
-// }
+$ban_img = "./uploads/banner/" . $banner["image"];
 ?>
 
 <!-- Hero Section -->
@@ -32,7 +17,7 @@ include "./include/frontendHeader.php";
         </div>
       </div>
       <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
-        <img src="<?= $imagePath ?>" class="img-fluid animated" alt="">
+        <img style="height: 300px; width:300px; border-radius:50%;" src="<?= $ban_img ?? "" ?>"  class="img-fluid animated" alt="">
 
       </div>
     </div>

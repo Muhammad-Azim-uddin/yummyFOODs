@@ -3,11 +3,9 @@ session_start();
 include './database/env.php';
 
 // $_SESSION['banner'] = $_REQUEST;
-$query = "SELECT * FROM banner ORDER BY id ASC";
+$query = "SELECT * FROM banner";
 $result = mysqli_query($conn, $query);
 $banner = mysqli_fetch_assoc($result);
-$imagePath = !empty($banner['image']) ? '../uploads/banner/' . $banner['image'] : 'https://www.jaypeehotels.com/blog/wp-content/uploads/2024/07/Blog-3-scaled.jpg'; 
-$id = (mysqli_fetch_assoc($result))['id'];
 
 
 

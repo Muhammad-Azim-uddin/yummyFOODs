@@ -7,8 +7,8 @@ $email = $_REQUEST['email'];
 $id = $_SESSION['user']['id'];
 $errors = [];
 $profile_image = $_FILES['profile_image'];
-// print_r($profile_image);
-// $extension = pathinfo($profile_image['name'])['extension'];
+
+
 $extension = pathinfo($profile_image['name'], PATHINFO_EXTENSION);
 define('MAX_SIZE', 1000000);
 define('EXTENSIONS', ['jpg', 'png', 'jpeg']);
@@ -23,11 +23,6 @@ if ($profile_image['size'] > 0) {
     }
 }
 
-// var_dump($errors);
-// else if(){
-
-// }
-
 if (count($errors) > 0) {
     $_SESSION['errors'] = $errors;
     header("Location: ../dashboard/profile.php");
@@ -38,22 +33,13 @@ if (count($errors) > 0) {
             mkdir("../uploads/users");
         }
         $fileName = "user-" . uniqid() . ".$extension";
-        // echo $fileName;
-        // exit();
         $is_uploaded = move_uploaded_file($profile_image['tmp_name'], "../uploads/users/" . $fileName);
-        // print_r($is_uploaded);
-        // exit;
         $query = "UPDATE user SET first_name='$first_name',last_name='$last_name',email='$email', profile_image='$fileName' WHERE id ='$id' ";
     } else {
         $query = "UPDATE user SET first_name ='$first_name',last_name ='$last_name',email ='$email' WHERE id ='$id' ";
-        $_SESSION['user']['profile_image'] = $fileName;
+        $fileName = $_SESSION['user']['profile_image'] ;
     }
 
-    // $result = mysqli_query($conn, $query);
-    // if ($result){
-    //     $_SESSION['user']['profile_image'] = $fileName;
-    //     header("Location: ../dashboard/profile.php");
-    // }
     mysqli_query($conn, $query);
     $_SESSION['user']['profile_image'] = $fileName;
     $_SESSION['user']['first_name'] = $first_name;

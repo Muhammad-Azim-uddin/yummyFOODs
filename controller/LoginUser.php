@@ -33,7 +33,7 @@ if ($result->num_rows == 0) {
     $errors['email'] = "email not found";
 }else{
     $user = mysqli_fetch_assoc($result);
-    if (!password_verify($password , $user['password'])){
+    if(!password_verify($password , $user['password'])){
         $errors["password"] = "Invalid password";
     }
 }
@@ -42,13 +42,10 @@ if ($result->num_rows == 0) {
 
 
 if (count($errors) > 0) {
-    // $_SESSION['old'] = $_POST;
     $_SESSION['errors'] = $errors;
     header('Location: ../login.php');
 } else {
     $_SESSION['user'] = $user;
-    // print_r($user);
-    // exit();
     header('Location:../dashboard/index.php');
     exit;
 }

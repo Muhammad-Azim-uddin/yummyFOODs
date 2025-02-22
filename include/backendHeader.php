@@ -6,11 +6,9 @@ if (!isset($_SESSION['user'])) {
 }
 
 $fullName = $_SESSION['user']['first_name'].' '.$_SESSION['user']['last_name'] ?? '';
-// print_r($fullName);
-// exit;
 function getInfo($fullName){
     if ($_SESSION['user']['profile_image']) {
-        return "../uploads/users/" . $_SESSION['user']['profile_image'];
+        return "../uploads/users/".$_SESSION['user']['profile_image'];
     }else {
         return "https://api.dicebear.com/9.x/initials/svg?seed=$fullName";
     }
@@ -48,11 +46,11 @@ function getInfo($fullName){
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../index.php">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                    <!-- <i class="fas fa-laugh-wink"></i> -->
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">Yummy Foods</div>
             </a>
 
             <!-- Divider -->
@@ -60,7 +58,7 @@ function getInfo($fullName){
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="../dashboard/index.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -259,7 +257,7 @@ function getInfo($fullName){
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $fullName ?></span>
-                                <img class="img-profile rounded-circle" src="<?= getInfo($fullName); ?>" >
+                                <img class="img-profile rounded-circle" src=" <?= getInfo($fullName) ?>" >
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
