@@ -11,7 +11,10 @@ $banner = mysqli_fetch_assoc($result);
 
 $query = "SELECT * FROM about";
 $result2 = mysqli_query($conn, $query);
-$about = mysqli_fetch_assoc($result2);
+if(isset($result2)){
+
+  $about = mysqli_fetch_assoc($result2);
+}
 // print_r($about);
 // exit;
 

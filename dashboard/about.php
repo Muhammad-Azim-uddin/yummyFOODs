@@ -16,8 +16,9 @@ include '../database/env.php';
 if (isset($_SESSION['about'])) {
     $about = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM about"));
     // print_r($about);
+    // exit;
 }
-
+$aboutImg = "../uploads/about/" . $about["aboutImage"];
 ?>
 
 
@@ -35,23 +36,15 @@ if (isset($_SESSION['about'])) {
                         </span>
                     </div>
                     <div class="form-group">
-                        <label>About details</label>
-                        <div class="row">
-                            <div class="col-lg-6 ">
-                                <!-- <label for="aboutImage">About Image :</label> -->
-                                <img class=" " style="max-width: 150px;" src="<?= $about['aboutImage'] ?? '' ?>">
-                                <input type="file" class="form-control-file" id="image" name="image">
-                                <span><?= $_SESSION['errors']['aboutImage']?? '' ?></span>
-                            </div>
-                            <div class="col-lg-6 ">
-                                info
-                            </div>
-                        </div>
+                        <label class="d-block" for="aboutImage">About Image :</label>
+                        <img style="max-width:150px" src="<?= $aboutImg ?? '' ?>">
+                        <input type="file" class="form-control-file" id="aboutImage" name="aboutImage">
+                        <span><?= $_SESSION['errors']['aboutImage'] ?? '' ?></span>
                     </div>
                     <div class="form-group">
                         <label for="bookingNumber">Booking Number:</label>
                         <input class="form-control" type="tel" name="bookingNumber" id="bookingNumber" placeholder="booking number.." value="<?= $about['bookingNumber'] ?? '' ?>">
-                        <span><?= $_SESSION['errors']['bookingNumber']?? '' ?></span>
+                        <span><?= $_SESSION['errors']['bookingNumber'] ?? '' ?></span>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>

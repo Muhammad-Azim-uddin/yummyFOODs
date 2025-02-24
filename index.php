@@ -1,6 +1,7 @@
 <?php
 include "./include/frontendHeader.php";
 $ban_img = "./uploads/banner/" . $banner["image"];
+$aboutImg = "./uploads/about/" . $about["aboutImage"];
 ?>
 
 <!-- Hero Section -->
@@ -38,7 +39,7 @@ $ban_img = "./uploads/banner/" . $banner["image"];
 
     <div class="row gy-4">
       <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
-        <img src="assets/img/about.jpg" class="img-fluid mb-4" alt="">
+        <div style="width:100%; display:flex; justify-content:center;"><img style="max-width: 380px;" src="<?= $aboutImg ?? ' ' ?>" class="img-fluid mb-4" alt=""></div>
         <div class="book-a-table">
           <h3>Book a Table</h3>
           <p class="text-danger"><?= $about['bookingNumber']?? '' ?></p>
